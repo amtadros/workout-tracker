@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<!--Mandy Tadros 11/12/2017-->
+<html lang="en">
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width,initial-scale=1.0">
+   <title>Workout Tracker</title>
+   <link rel="stylesheet" href="Semantic-UI-CSS-master/semantic.min.css">
+   <link rel="stylesheet" href="styles/styles.css">
+   <link rel="stylesheet" href="styles/ericmeyerResetHTML5.css">
+   <link rel="icon" href="images/favicon.ico" media="screen">
+   <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+   <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+   <script src="modernizr.custom.05819.js"></script>
+</head>
+<body>
+  <div id="overlay-outer">
+    <nav id="sideNav">
+      <a id="closeButton">&times;</a>
+      <ul>
+        <li><a href="pt.html">Log Activity</a></li>
+        <li><a href="history.html">History</a></li>
+      </ul>
+    </nav>
+    <span id="hamburgerMenu">&#9776;</span>
+    <div id="overlay-inner">
+      <main>
+        <div id="calHeader">
+          <span id="monthLabel"></span><br>
+          <span id="yearLabel"></span>
+          <i class="material-icons" id="previousMonth">arrow_back</i>
+          <i class="material-icons" id="nextMonth">arrow_forward</i>
+        </div>
+        <br>
+          <table id="calTable">
+            <thead>
+              <tr>
+                 <th>Sun</th>
+                 <th>Mon</th>
+                 <th>Tues</th>
+                 <th>Wed</th>
+                 <th>Thurs</th>
+                 <th>Fri</th>
+                 <th>Sat</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td id="c0"><p id="p0"></p></td>
+                <td id="c1"></td>
+                <td id="c2"></td>
+                <td id="c3"></td>
+                <td id="c4"></td>
+                <td id="c5"></td>
+                <td id="c6"></td>
+              </tr>
+              <tr>
+                <td id="c7"></td>
+                <td id="c8"></td>
+                <td id="c9"></td>
+                <td id="c10"></td>
+                <td id="c11"></td>
+                <td id="c12"></td>
+                <td id="c13"></td>
+              </tr>
+              <tr>
+                <td id="c14"></td>
+                <td id="c15"></td>
+                <td id="c16"></td>
+                <td id="c17"></td>
+                <td id="c18"></td>
+                <td id="c19"></td>
+                <td id="c20"></td>
+              </tr>
+              <tr>
+                <td id="c21"></td>
+                <td id="c22"></td>
+                <td id="c23"></td>
+                <td id="c24"></td>
+                <td id="c25"></td>
+                <td id="c26"></td>
+                <td id="c27"></td>
+              </tr>
+              <tr>
+                <td id="c28"></td>
+                <td id="c29"></td>
+                <td id="c30"></td>
+                <td id="c31"></td>
+                <td id="c32"></td>
+                <td id="c33"></td>
+                <td id="c34"></td>
+              </tr>
+            </tbody>
+          </table>
+          <br><br>
+        </main>
+        <footer>
+          <a href="mailto:atadros@stumail.jccc.edu">atadros@stumail.jccc.edu</a>
+        </footer>
+          <div class="ui modal">
+            <i class="close icon"></i>
+            <div class="header">
+              Add Workout for <span id="thisDate"></span>
+            </div>
+            <div class="image content">
+              <div class="ui medium image">
+                <img src="images/kettlebell.jpg" alt="Kettlebell">
+              </div>
+              <div class="description">
+                <div class="ui header">You got this!</div>
+                <form class="ui form">
+                  <select class="ui search dropdown" id="workoutCategory">
+                    <option value="">Workout Category</option>
+                    <option value="Barbell">Barbell Lifts</option>
+                    <option value="Girls">Girls</option>
+                    <option value="Heroes">Heroes</option>
+                    <option value="Notables">Notables</option>
+                    <option value="Gymnastics">Gymnastics</option>
+                    <option value="Endurance">Endurance</option>
+                    <option value="Games">Games</option>
+                    <option value="CrossFit">CrossFit.com</option>
+                    <option value="Benchmarks">Gym Benchmarks</option>
+                  </select>
+                  <br/>
+                  <div class="field">
+                    <label>Description</label>
+                    <textarea rows="4" cols="50" name="description" placeholder="Description"></textarea>
+                  </div>
+                  <div class="field">
+                    <label>Score</label>
+                    <input type="text" name="score" placeholder="Score">
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div class="actions">
+              <div class="ui reset button" id="addEventReset">
+                Reset
+              </div>
+              <div class="ui positive right labeled icon button" id="addEventSave">
+                Save
+                <i class="checkmark icon"></i>
+              </div>
+            </div>
+          </div>
+    </div><!--closes overlay-inner-->
+  </div><!--closes overlay-outer-->
+  <script src="Semantic-UI-CSS-master/semantic.js"></script>
+  <script src="hist.js"></script>
+</body>
+</html>

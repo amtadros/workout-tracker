@@ -1,0 +1,259 @@
+/*Mandy Tadros 11/22/2017*/
+
+body {
+  font-family: Helvetica;
+  background-color: #505050;
+  background: linear-gradient(
+      rgba(192,192,192,.1),
+      rgba(192,192,192,.1)
+    ), url(../images/runner.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+	background-attachment: fixed;
+  color: white;
+}
+p{
+  color: rgba(0, 0, 0, 0.87);
+}
+#overlay-outer{
+  width: 80%;
+  margin: 0 auto 0 auto;
+  padding-top: 10%;
+  /*transition: float .5s;*/
+  /* border: 1px solid red; */
+}
+#overlay-inner {
+  width: 80%;
+  margin: 0 auto 0 auto;
+  /* border: 1px solid red; */
+}
+#hamburgerMenu {
+  font-size: 2em;
+  font-weight: bold;
+  cursor: pointer;
+  display: none;
+  padding-left: 5%;
+  /* border: 1px solid red; */
+}
+#calHeader{
+  text-align: center;
+  background-color: #ffaa80;
+  float: left;
+  width: 100%;
+}
+#monthLabel {
+  display: inline-block;
+  padding-top: 3%;
+  font-size: 1.5em;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-family:"Montserrat", sans-serif;
+}
+#yearLabel{
+  font-family:"Montserrat", sans-serif;
+}
+#previousMonth {
+  float: left;
+  cursor: pointer;
+  padding-left: 17%;
+  padding-bottom: 3%;
+}
+#nextMonth {
+  float: right;
+  cursor: pointer;
+  padding-right: 17%;
+  padding-bottom: 3%;
+}
+
+footer {
+  display: none;
+	background-color:#2B2B2B;
+	font-family:"Century Gothic", sans-serif;
+	text-align:center;
+	padding: 2%;
+	top: 0;
+	color: #FFFFFF;
+}
+footer a {
+  display: none;
+	text-decoration: none;
+	color: #FFFFFF;
+  font-size: .7em;
+}
+footer a:hover {
+  display: none;
+	color:#F2D388;
+}
+
+
+/***************************
+**start of side nav styles**
+***************************/
+#sideNav {
+	font-size: 1em;
+	z-index: 1;
+	top: 0;
+  left: 0;
+	position: fixed;
+  background-color: #4D4D4D;
+  text-align: center;
+  width: 100%;
+  height: 10%;
+  display: inline;
+  overflow: hidden;
+  /* transition: 0.5s;
+  -webkit-transition: 0.5s;
+  -moz-transtion: 0.5s;
+  -o-transition: 0.5s; */
+}
+#header {
+  color: pink;
+  font-weight: bold;
+  font-family: 'Montserrat', sans-serif;
+  float:left;
+  font-size: 1.2em;
+  margin-left: 2%;
+  margin-top: 1.7%;
+}
+#sideNav ul {
+	overflow:hidden;
+}
+#sideNav li{
+	padding: 1.5em 2em;
+  display: inline-block;
+}
+#sideNav a{
+  font-family: 'Raleway', sans-serif;
+  font-weight: bold;
+	text-decoration:none;
+	color: white;
+  text-transform: uppercase;
+  /* transition: 0.3s;
+  -webkit-transition: 0.3s;
+  -moz-transtion: 0.3s;
+  -o-transition: 0.3s; */
+}
+#sideNav a:hover{
+	color: #ffaa80;
+}
+#closeButton {
+  display: none;
+  cursor: pointer;
+  font-size: 2em;
+  margin-left: 1%;
+  margin-top: 1%;
+}
+/**end nav styles**/
+
+/***************************
+**start of form styles**
+***************************/
+#form-style {
+  font-family: 'Montserrat', sans-serif;
+  padding: 30px;
+  margin: 50px auto;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
+  -moz-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
+  -webkit-box-shadow:  0px 0px 15px rgba(0, 0, 0, 0.22);
+}
+#form-style h2 {
+  background: #ffaa80; /*#4D4D4D;*/
+  text-transform: uppercase;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-family:"Montserrat", sans-serif;
+  padding: 20px;
+  margin: -30px -30px 30px -30px;
+}
+fieldset {
+  border-radius: .5em;
+  background:rgba(192,192,192,.7);
+}
+.instructions, .reps, .repValue {
+  display: none;
+  margin: 1em;
+  padding-left: 1em;
+}
+textarea {
+  width: 100%;
+}
+legend {
+  font-size: 1.2em;
+}
+/*end of form styles*/
+
+/************************
+**start of table styles**
+************************/
+table, td, th {
+	border: .15em solid #2B2B2B;
+}
+table {
+    margin: auto;
+    border-spacing: 0;
+    table-layout: fixed;
+    width: 100%;
+}
+tbody {
+  background-color: rgba(192,192,192,.9);
+  color: white;
+  font-weight: bold;
+}
+td, th {
+    padding: 2%;
+    width: 100%;
+    text-align: center;
+    word-wrap: break-word;
+    overflow: auto;
+}
+td {
+	text-align: right;
+  padding-top: 1%;
+  padding-bottom: 5%;
+}
+td:hover {
+  background-color: rgba(211,211,211,1);
+}
+
+/**end table styles**/
+
+/****************
+**media queries**
+****************/
+
+/**tablet view**/
+@media only screen and  (max-width: 64em){
+  #overlay-outer{
+		width: 100%;
+    padding-top: 5%;
+	}
+  #hamburgerMenu {
+    display: inline-block;
+
+  }
+  #closeButton {
+    display: block;
+  }
+  #sideNav{
+    width: 0;
+    overflow: hidden;
+    height: 100%;
+  }
+  #sideNav a{
+    font-size: .8em;
+  }
+}
+
+/**smart phone view**/
+@media only screen and (max-width: 37.5em) {
+  #overlay-outer{
+    width: 100%;
+  }
+  #sideNav li{
+    border-bottom: .2em solid #FFFFFF;
+    padding: 1%;
+  }
+  #sideNav a{
+    font-size: .5em;
+  }
+}

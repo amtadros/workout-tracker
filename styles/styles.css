@@ -16,16 +16,16 @@ p{
   color: rgba(0, 0, 0, 0.87);
 }
 #overlay-outer{
-  width: 80%;
+  width: 90%;
   margin: 0 auto 0 auto;
   padding-top: 10%;
   /*transition: float .5s;*/
-  /* border: 1px solid red; */
+  border: 1px solid red; 
 }
 #overlay-inner {
-  width: 80%;
+  width: 90%;
   margin: 0 auto 0 auto;
-  /* border: 1px solid red; */
+  border: 1px solid red; 
 }
 #hamburgerMenu {
   font-size: 2em;
@@ -189,10 +189,12 @@ table, td, th {
 	border: .15em solid #2B2B2B;
 }
 table {
-    margin: auto;
-    border-spacing: 0;
-    table-layout: fixed;
-    width: 100%;
+  margin: auto;
+  border-spacing: 0;
+  table-layout: fixed;
+  width: 100%;
+  height: 100%
+  overflow-x: hidden;
 }
 tbody {
   background-color: rgba(192,192,192,.9);
@@ -200,21 +202,37 @@ tbody {
   font-weight: bold;
 }
 td, th {
-    padding: 2%;
-    width: 100%;
-    text-align: center;
-    word-wrap: break-word;
-    overflow: auto;
+  padding: 1%;
+  width: 100%;
+  text-align: center;
+  word-wrap: break-word;
+  overflow: auto;
 }
 td {
 	text-align: right;
   padding-top: 1%;
-  padding-bottom: 5%;
+  padding-bottom: 9%;
 }
+
 td:hover {
   background-color: rgba(211,211,211,1);
 }
-
+.banner{
+  background-color: #00B5AD !important;
+  border-color: #00B5AD !important;
+  color: #FFFFFF !important;
+  padding: 0.4em 0.4em;
+  color: rgba(0, 0, 0, 0.6);
+  text-transform: none;
+  text-align: left;
+  font-weight: bold;
+  font-size: .6em;
+  border: 0px solid transparent;
+  border-radius: 0.28571429rem;
+  -webkit-transition: background 0.1s ease;
+  transition: background 0.1s ease;
+  white-space: nowrap;
+}
 /**end table styles**/
 
 /****************

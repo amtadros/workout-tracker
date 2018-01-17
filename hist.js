@@ -58,12 +58,15 @@ function printCalendar(year = defaultYearValue, month = defaultMonthValue) { //s
   /*Populate calendar dates*/
   var i=0;
   do {
+    // var dateDiv = document.createElement("div");
+    // var dateContent = document.createTextNode(i+1);
+    // dateDiv.appendChild(dateContent);
+    // document.getElementById("c" + firstDayValue).appendChild(dateDiv);
     document.getElementById("c" + firstDayValue).innerHTML = i+1;
     dateHolder.push(i+1);
     i++;
     firstDayValue++;
   } while (i<numberOfDaysInMonth);
-  console.log(dateHolder);
 }
 
 /*Function to remove data from calendar so that navigation between months doesn't cause overlap*/
@@ -118,10 +121,10 @@ function previousMonth(){
     displayedMonth = displayedMonth - 1;
     newYear = displayedYear;
 	}
-	console.log("newMonth: " + newMonth);
-	console.log("newYear: " + newYear);
-  console.log("displayedMonth: " + displayedMonth);
-  console.log("displayedYear: " + displayedYear);
+	// console.log("newMonth: " + newMonth);
+	// console.log("newYear: " + newYear);
+ //  console.log("displayedMonth: " + displayedMonth);
+ //  console.log("displayedYear: " + displayedYear);
 	printCalendar(newYear, newMonth);
 }
 
@@ -145,16 +148,20 @@ function resetForm() {
 
 function saveForm() {
   var workoutValue = document.getElementById("workoutCategory").value;
-  workoutHistory.push(workoutValue); //overwritting with each Submit
-  console.log(workoutHistory);
-  localStorage.setItem("workoutCategory", JSON.stringify(workoutHistory));
-  // localStorage.setItem("workoutCategory", JSON.stringify(workoutHistory.push("mom")));
-  // workoutHistory.push(workoutValue);
-  // console.log(workoutHistory.length);
-  //console.log(workoutHistory[0]);
-  //var workout = localStorage.getItem("workoutCategory");
-  console.log(JSON.parse(localStorage.getItem("workoutCategory")));
-  //document.getElementById("p0").innerHTML=
+  var descriptionValue = document.getElementById("description").value;
+  var scoreValue = document.getElementById("score").value;
+  workoutHistory.push(workoutValue); 
+
+  console.log(workoutValue);
+  var banner = document.createElement("div");
+  var lineBreak = document.createElement("br");
+  banner.className="banner"
+  banner.style.border = "1px solid rd";
+  var content = document.createTextNode(workoutValue);
+  banner.appendChild(content);
+  document.getElementById("c2").appendChild(lineBreak);
+  document.getElementById("c2").appendChild(banner);
+
 }
 
 /*event listeners*/
@@ -205,10 +212,12 @@ function createEventListeners() {
   }
 
   var saveButton = document.getElementById("addEventSave");
-  if(saveButton.addEventListener){
-    saveButton.addEventListener("click", saveForm, false);
-  } else if (saveButton.attachEvent){
-    saveButton.attachEvent("onclick", false);
+  if(document.getElementById("workoutCategory").value !== ""){
+    if(saveButton.addEventListener){
+      saveButton.addEventListener("click", saveForm, false);
+    } else if (saveButton.attachEvent){
+      saveButton.attachEvent("onclick", false);
+    }
   }
 }
 

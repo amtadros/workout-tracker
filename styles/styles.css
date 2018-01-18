@@ -20,12 +20,11 @@ p{
   margin: 0 auto 0 auto;
   padding-top: 10%;
   /*transition: float .5s;*/
-  border: 1px solid red; 
+ 
 }
 #overlay-inner {
   width: 90%;
   margin: 0 auto 0 auto;
-  border: 1px solid red; 
 }
 #hamburgerMenu {
   font-size: 2em;
@@ -221,12 +220,15 @@ td:hover {
   background-color: #00B5AD !important;
   border-color: #00B5AD !important;
   color: #FFFFFF !important;
-  padding: 0.4em 0.4em;
+  padding: 0.2em 0.2em;
+  margin-bottom: 3px;
+  display: inline-block;
+  width: 98%;
   color: rgba(0, 0, 0, 0.6);
   text-transform: none;
   text-align: left;
   font-weight: bold;
-  font-size: .6em;
+  font-size: .8em;
   border: 0px solid transparent;
   border-radius: 0.28571429rem;
   -webkit-transition: background 0.1s ease;

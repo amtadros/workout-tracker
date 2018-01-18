@@ -13,9 +13,10 @@ var displayedMonth = defaultMonthValue; //global variablle so that functions kno
 var monthNameArray = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 var table = document.getElementById("calTable");
 var dateHolder = [];
-var localStorage = window.localStorage;
+var cellInd = "";
 var workoutHistory =  [];
-//JSON.parse(localStorage.getItem("workoutCategory")) ||
+var descHistory = [];
+var scoreHistory = [];
 
 function openNav() {
   console.log("openNav reached");
@@ -97,10 +98,10 @@ function nextMonth(){
     displayedMonth = displayedMonth + 1;
     newYear = displayedYear;
 	}
-	console.log("newMonth: " + newMonth);
-	console.log("newYear: " + newYear);
-  console.log("displayedMonth: " + displayedMonth);
-  console.log("displayedYear: " + displayedYear);
+	// console.log("newMonth: " + newMonth);
+	// console.log("newYear: " + newYear);
+ //  console.log("displayedMonth: " + displayedMonth);
+ //  console.log("displayedYear: " + displayedYear);
 	printCalendar(newYear, newMonth);
 }
 
@@ -131,7 +132,7 @@ function previousMonth(){
 function addEvent() {
   var firstDate = new Date(displayedYear, displayedMonth, 1);
   var firstDayValue = firstDate.getDay();
-  var cellInd = this.id;
+  cellInd = this.id;
   var newCellInd = cellInd.substr(1);
   var dateClicked = dateHolder[newCellInd - firstDayValue];
 
@@ -147,21 +148,25 @@ function resetForm() {
 }
 
 function saveForm() {
+  console.log("save");
   var workoutValue = document.getElementById("workoutCategory").value;
   var descriptionValue = document.getElementById("description").value;
   var scoreValue = document.getElementById("score").value;
   workoutHistory.push(workoutValue); 
+  descHistory.push(descriptionValue);
+  scoreHistory.push(scoreValue);
 
-  console.log(workoutValue);
-  var banner = document.createElement("div");
+  var banner = document.createElement("span");
   var lineBreak = document.createElement("br");
   banner.className="banner"
-  banner.style.border = "1px solid rd";
   var content = document.createTextNode(workoutValue);
+  var popup = document.createElement("div");
+  popup.className="ui button";
+  popup.dataTooltip="hi mom";
   banner.appendChild(content);
-  document.getElementById("c2").appendChild(lineBreak);
-  document.getElementById("c2").appendChild(banner);
-
+  banner.appendChild(popup);
+  document.getElementById(cellInd).appendChild(lineBreak);
+  document.getElementById(cellInd).appendChild(banner);
 }
 
 /*event listeners*/
@@ -212,12 +217,10 @@ function createEventListeners() {
   }
 
   var saveButton = document.getElementById("addEventSave");
-  if(document.getElementById("workoutCategory").value !== ""){
-    if(saveButton.addEventListener){
-      saveButton.addEventListener("click", saveForm, false);
-    } else if (saveButton.attachEvent){
-      saveButton.attachEvent("onclick", false);
-    }
+  if(saveButton.addEventListener){
+    saveButton.addEventListener("click", saveForm, false);
+  } else if (saveButton.attachEvent){
+    saveButton.attachEvent("onclick", false);
   }
 }
 

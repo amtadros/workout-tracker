@@ -18,21 +18,11 @@ p{
 #overlay-outer{
   width: 90%;
   margin: 0 auto 0 auto;
-  padding-top: 10%;
-  /*transition: float .5s;*/
- 
+  padding-top: 10%; 
 }
 #overlay-inner {
   width: 90%;
   margin: 0 auto 0 auto;
-}
-#hamburgerMenu {
-  font-size: 2em;
-  font-weight: bold;
-  cursor: pointer;
-  display: none;
-  padding-left: 5%;
-  /* border: 1px solid red; */
 }
 #calHeader{
   text-align: center;
@@ -64,31 +54,16 @@ p{
   padding-bottom: 3%;
 }
 
-footer {
-  display: none;
-	background-color:#2B2B2B;
-	font-family:"Century Gothic", sans-serif;
-	text-align:center;
-	padding: 2%;
-	top: 0;
-	color: #FFFFFF;
-}
-footer a {
-  display: none;
-	text-decoration: none;
-	color: #FFFFFF;
-  font-size: .7em;
-}
-footer a:hover {
-  display: none;
-	color:#F2D388;
+#mainCard {
+  float: left;
+  margin-right: 5%;
 }
 
 
 /***************************
 **start of side nav styles**
 ***************************/
-#sideNav {
+.topNav {
 	font-size: 1em;
 	z-index: 1;
 	top: 0;
@@ -97,50 +72,28 @@ footer a:hover {
   background-color: #4D4D4D;
   text-align: center;
   width: 100%;
-  height: 10%;
   display: inline;
   overflow: hidden;
-  /* transition: 0.5s;
-  -webkit-transition: 0.5s;
-  -moz-transtion: 0.5s;
-  -o-transition: 0.5s; */
 }
-#header {
-  color: pink;
-  font-weight: bold;
-  font-family: 'Montserrat', sans-serif;
-  float:left;
-  font-size: 1.2em;
-  margin-left: 2%;
-  margin-top: 1.7%;
-}
-#sideNav ul {
-	overflow:hidden;
-}
-#sideNav li{
-	padding: 1.5em 2em;
+.topNav a {
+  overflow: hidden;
+  padding: 1.5em 2em;
   display: inline-block;
-}
-#sideNav a{
   font-family: 'Raleway', sans-serif;
   font-weight: bold;
-	text-decoration:none;
+	text-decoration: none;
 	color: white;
   text-transform: uppercase;
-  /* transition: 0.3s;
-  -webkit-transition: 0.3s;
-  -moz-transtion: 0.3s;
-  -o-transition: 0.3s; */
 }
-#sideNav a:hover{
+.topNav a:hover {
 	color: #ffaa80;
 }
-#closeButton {
+.topNav #hamburgerMenu {
   display: none;
-  cursor: pointer;
   font-size: 2em;
-  margin-left: 1%;
-  margin-top: 1%;
+  font-weight: bold;
+  cursor: pointer;
+  padding-left: 5%;
 }
 /**end nav styles**/
 
@@ -205,14 +158,13 @@ td, th {
   width: 100%;
   text-align: center;
   word-wrap: break-word;
-  overflow: auto;
+  overflow: none;
 }
 td {
 	text-align: right;
   padding-top: 1%;
   padding-bottom: 9%;
 }
-
 td:hover {
   background-color: rgba(211,211,211,1);
 }
@@ -244,36 +196,37 @@ td:hover {
 /**tablet view**/
 @media only screen and  (max-width: 64em){
   #overlay-outer{
-		width: 100%;
-    padding-top: 5%;
-	}
-  #hamburgerMenu {
-    display: inline-block;
-
-  }
-  #closeButton {
-    display: block;
-  }
-  #sideNav{
-    width: 0;
-    overflow: hidden;
-    height: 100%;
-  }
-  #sideNav a{
-    font-size: .8em;
+    padding-top: 15%;
   }
 }
-
 /**smart phone view**/
-@media only screen and (max-width: 37.5em) {
+@media only screen and  (max-width: 37.5em){
   #overlay-outer{
+		width: 100%;
+    padding-top: 25%;
+	}
+  .topNav #hamburgerMenu {
+    display: block;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    float: right;
+  }
+  .topNav a{
+    display: none;
+  }
+  .topNav.compressed {
+  }
+  .topNav.compressed #hamburgerMenu{
+    display: block;
     width: 100%;
+    float: right;
   }
-  #sideNav li{
-    border-bottom: .2em solid #FFFFFF;
-    padding: 1%;
+  .topNav.compressed a {
+    display: block;
+    text-align: left;
+    border: 1px solid gray;
   }
-  #sideNav a{
-    font-size: .5em;
+  .topNav.compressed a:hover {
+    background-color: gray;
   }
 }

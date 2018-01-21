@@ -1,6 +1,5 @@
 /* Mandy Tadros
 *  Workout Tracker
-*  11/22/2017
 */
 
 /*define global variables*/
@@ -14,20 +13,20 @@ var monthNameArray = ["January", "February", "March", "April", "May", "June", "J
 var table = document.getElementById("calTable");
 var dateHolder = [];
 var cellInd = "";
-var workoutHistory =  [];
+var workoutHistory = [];
 var descHistory = [];
 var scoreHistory = [];
 
 function openNav() {
   console.log("openNav reached");
-  document.getElementById("sideNav").style.width = "20%";
-  document.getElementById("overlay-outer").style.float = "right";
-}
-
-function closeNav() {
-  console.log("closeNav reached");
-  document.getElementById("sideNav").style.width = "0";
-  document.getElementById("overlay-outer").style.float = "none";
+  var navStatus = document.getElementById("navBar");
+  if (navStatus.className === "topNav") {
+    console.log("if of nav");
+    navStatus.className += " compressed";
+  } else {
+    console.log("else of nav");
+    navStatus.className = "topNav";
+  }  
 }
 
 /*Function to populate month name, year, and populate dates (adding or removing table rows as needed)*/
@@ -59,10 +58,6 @@ function printCalendar(year = defaultYearValue, month = defaultMonthValue) { //s
   /*Populate calendar dates*/
   var i=0;
   do {
-    // var dateDiv = document.createElement("div");
-    // var dateContent = document.createTextNode(i+1);
-    // dateDiv.appendChild(dateContent);
-    // document.getElementById("c" + firstDayValue).appendChild(dateDiv);
     document.getElementById("c" + firstDayValue).innerHTML = i+1;
     dateHolder.push(i+1);
     i++;
@@ -149,22 +144,32 @@ function resetForm() {
 
 function saveForm() {
   console.log("save");
+  //store user input
   var workoutValue = document.getElementById("workoutCategory").value;
   var descriptionValue = document.getElementById("description").value;
   var scoreValue = document.getElementById("score").value;
+  //add user input to array
   workoutHistory.push(workoutValue); 
   descHistory.push(descriptionValue);
   scoreHistory.push(scoreValue);
-
+  //show saved data on calendar
   var banner = document.createElement("span");
   var lineBreak = document.createElement("br");
-  banner.className="banner"
+  var i = document.createElement("span");
+  banner.className="banner";
+  i.className = "delete icon";
   var content = document.createTextNode(workoutValue);
-  var popup = document.createElement("div");
-  popup.className="ui button";
-  popup.dataTooltip="hi mom";
+  var tooltip = "Score: " + scoreValue  + " Description: " + descriptionValue;
+  banner.setAttribute("data-tooltip", tooltip);
+  banner.setAttribute("data-position", "right center");
+  i.style.zIndex= "1";
+  i.style.cursor = "pointer";
+  i.setAttribute("onclick", function(){ 
+    stopPropagation();
+    banner.remove();
+  })
   banner.appendChild(content);
-  banner.appendChild(popup);
+  banner.appendChild(i);
   document.getElementById(cellInd).appendChild(lineBreak);
   document.getElementById(cellInd).appendChild(banner);
 }
@@ -177,13 +182,6 @@ function createEventListeners() {
     open.addEventListener("click", openNav, false);
   } else if(open.attachEvent){
     open.attachEvent("onclick", openNav);
-  }
-
-  var close = document.getElementById("closeButton");
-  if(close.addEventListener){
-    close.addEventListener("click", closeNav, false);
-  } else if(close.attachEvent){
-    close.attachEvent("onclick", closeNav);
   }
 
   var next = document.getElementById("nextMonth");

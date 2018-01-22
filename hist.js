@@ -40,8 +40,9 @@ function printCalendar(year = defaultYearValue, month = defaultMonthValue) { //s
   var firstDayValue = firstDate.getDay(); //to know which day on first row to start on
   var numberOfDaysInMonth = new Date(year, month + 1, 0).getDate();
 
-  console.log("month in print cal: " + month);
-  console.log("year in print cal: " + year);
+  /*console.log("month in print cal: " + month);
+  console.log("year in print cal: " + year);*/
+	
   /*Print moth name & year*/
   document.getElementById("monthLabel").innerHTML = monthNameArray[month];
   document.getElementById("yearLabel").innerHTML = thisYear;
@@ -71,7 +72,7 @@ function clearCalendar() {
 	  document.getElementById("c"+i).innerHTML ="";
 	}
 	if(table.rows.length >6){
-		table.deleteRow(6);
+	  table.deleteRow(6);
 	}
   dateHolder.length =0;
 }
@@ -82,21 +83,19 @@ function nextMonth(){
 	var newMonth ="";
 	var newYear=0;
 	if (displayedMonth == 11) {
-	  console.log("IF! 11");
 	  newMonth = 0;
 	  newYear = displayedYear + 1;
-    displayedMonth = 0;
-    displayedYear = displayedYear + 1;
+    	  displayedMonth = 0;
+    	  displayedYear = displayedYear + 1;
 	} else {
-		console.log("ELSE!");
-		newMonth = displayedMonth+ 1;
-    displayedMonth = displayedMonth + 1;
-    newYear = displayedYear;
+	  newMonth = displayedMonth+ 1;
+    	  displayedMonth = displayedMonth + 1;
+          newYear = displayedYear;
 	}
-	// console.log("newMonth: " + newMonth);
-	// console.log("newYear: " + newYear);
- //  console.log("displayedMonth: " + displayedMonth);
- //  console.log("displayedYear: " + displayedYear);
+	//console.log("newMonth: " + newMonth);
+	//console.log("newYear: " + newYear);
+	//console.log("displayedMonth: " + displayedMonth);
+	//console.log("displayedYear: " + displayedYear);
 	printCalendar(newYear, newMonth);
 }
 
@@ -106,21 +105,21 @@ function previousMonth(){
 	var newMonth ="";
 	var newYear=0;
 	if (displayedMonth == 0) {
-	  console.log("IF! 0");
+	  //console.log("IF! 0");
 	  newMonth = 11;
 	  newYear = displayedYear - 1;
-    displayedMonth = 11;
-    displayedYear = displayedYear - 1;
+    	  displayedMonth = 11;
+    	  displayedYear = displayedYear - 1;
 	} else {
-		console.log("ELSE!");
-		newMonth = displayedMonth - 1;
-    displayedMonth = displayedMonth - 1;
-    newYear = displayedYear;
+	  //console.log("ELSE!");
+	  newMonth = displayedMonth - 1;
+          displayedMonth = displayedMonth - 1;
+          newYear = displayedYear;
 	}
 	// console.log("newMonth: " + newMonth);
 	// console.log("newYear: " + newYear);
- //  console.log("displayedMonth: " + displayedMonth);
- //  console.log("displayedYear: " + displayedYear);
+        //console.log("displayedMonth: " + displayedMonth);
+        //console.log("displayedYear: " + displayedYear);
 	printCalendar(newYear, newMonth);
 }
 
@@ -144,32 +143,32 @@ function resetForm() {
 
 function saveForm() {
   console.log("save");
-  //store user input
+  /*store user input*/
   var workoutValue = document.getElementById("workoutCategory").value;
   var descriptionValue = document.getElementById("description").value;
   var scoreValue = document.getElementById("score").value;
-  //add user input to array
+  /*add user input to array*/
   workoutHistory.push(workoutValue); 
   descHistory.push(descriptionValue);
   scoreHistory.push(scoreValue);
-  //show saved data on calendar
+  /*show saved data on calendar*/
   var banner = document.createElement("span");
   var lineBreak = document.createElement("br");
   var i = document.createElement("span");
   banner.className="banner";
   i.className = "delete icon";
   var content = document.createTextNode(workoutValue);
-  var tooltip = "Score: " + scoreValue  + " Description: " + descriptionValue;
+  var tooltip = "Description: " + descriptionValue + " Score: " + scoreValue  + ;
   banner.setAttribute("data-tooltip", tooltip);
   banner.setAttribute("data-position", "right center");
-  i.style.zIndex= "1";
-  i.style.cursor = "pointer";
-  i.setAttribute("onclick", function(){ 
-    stopPropagation();
-    banner.remove();
-  })
+//   i.style.zIndex= "1";
+//   i.style.cursor = "pointer";
+//   i.setAttribute("onclick", function(){ 
+//     stopPropagation();
+//     banner.remove();
+//   })
   banner.appendChild(content);
-  banner.appendChild(i);
+//   banner.appendChild(i);
   document.getElementById(cellInd).appendChild(lineBreak);
   document.getElementById(cellInd).appendChild(banner);
 }
@@ -195,7 +194,7 @@ function createEventListeners() {
   if(previous.addEventListener){
     previous.addEventListener("click", previousMonth, false);
   } else if (previous.attachEvent){
-	  previous.attachEvent("onclick", previousMonth);
+    previous.attachEvent("onclick", previousMonth);
   }
 
   var cellAdd = table.getElementsByTagName("td");

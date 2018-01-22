@@ -158,7 +158,7 @@ function saveForm() {
   banner.className="banner";
   i.className = "delete icon";
   var content = document.createTextNode(workoutValue);
-  var tooltip = "Description: " + descriptionValue + " Score: " + scoreValue  + ;
+  var tooltip = "Description: " + descriptionValue + "\n\nScore: " + scoreValue;
   banner.setAttribute("data-tooltip", tooltip);
   banner.setAttribute("data-position", "right center");
 //   i.style.zIndex= "1";

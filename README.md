@@ -1,4 +1,4 @@
-Overview
+Overview: 
 I enjoy working out and coding so I wanted to mix the two worlds. This app is a way to log workouts and eventually see trends over time.
 
 Future Enhancements

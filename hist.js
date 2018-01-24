@@ -154,23 +154,26 @@ function saveForm() {
   /*show saved data on calendar*/
   var banner = document.createElement("span");
   var lineBreak = document.createElement("br");
-  var i = document.createElement("span");
+  var i = document.createElement("i");
   banner.className="banner";
   i.className = "delete icon";
+  i.style.cursor = "pointer";
   var content = document.createTextNode(workoutValue);
   var tooltip = "Description: " + descriptionValue + "\n\nScore: " + scoreValue;
   banner.setAttribute("data-tooltip", tooltip);
   banner.setAttribute("data-position", "right center");
-//   i.style.zIndex= "1";
-//   i.style.cursor = "pointer";
-//   i.setAttribute("onclick", function(){ 
-//     stopPropagation();
-//     banner.remove();
-//   })
   banner.appendChild(content);
-//   banner.appendChild(i);
-  document.getElementById(cellInd).appendChild(lineBreak);
-  document.getElementById(cellInd).appendChild(banner);
+  banner.appendChild(i);
+  var currentCell = document.getElementById(cellInd);
+  currentCell.appendChild(lineBreak);
+  currentCell.appendChild(banner);
+  console.log(document.getElementsByClassName("delete icon")[0]);
+  document.getElementsByClassName("delete icon")[0].setAttribute("onclick", function xClick(event){ 
+    console.log("i click");
+    event.stopPropagation();
+    currentCell.removeChild(banner);
+  })
+
 }
 
 /*event listeners*/

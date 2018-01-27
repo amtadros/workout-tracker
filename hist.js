@@ -168,7 +168,8 @@ function saveForm() {
   currentCell.appendChild(lineBreak);
   currentCell.appendChild(banner);
   console.log(document.getElementsByClassName("delete icon")[0]);
-  document.getElementsByClassName("delete icon")[0].setAttribute("onclick", function xClick(event){ 
+  //document.getElementsByClassName
+  $(i).click( function (event){ 
     console.log("i click");
     event.stopPropagation();
     currentCell.removeChild(banner);

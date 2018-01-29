@@ -17,6 +17,7 @@ var workoutHistory = [];
 var descHistory = [];
 var scoreHistory = [];
 
+
 function openNav() {
   console.log("openNav reached");
   var navStatus = document.getElementById("navBar");
@@ -168,7 +169,6 @@ function saveForm() {
   currentCell.appendChild(lineBreak);
   currentCell.appendChild(banner);
   console.log(document.getElementsByClassName("delete icon")[0]);
-  //document.getElementsByClassName
   $(i).click( function (event){ 
     console.log("i click");
     event.stopPropagation();

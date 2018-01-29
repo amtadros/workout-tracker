@@ -1,0 +1,26 @@
+{
+  "name": "workout-tracker",
+  "version": "1.0.0",
+  "description": "Node.js and MySQL app",
+  "main": "app.js",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "env2": "^2.2.0",
+    "express": "^4.16.2",
+    "mysql": "^2.15.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amtadros/workout-tracker.git"
+  },
+  "author": "Mandy Tadros",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/amtadros/workout-tracker/issues"
+  },
+  "homepage": "https://github.com/amtadros/workout-tracker#readme"
+}
